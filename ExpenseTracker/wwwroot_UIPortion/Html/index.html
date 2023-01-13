@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Expense Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="../CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/Shared.css"  />
+    <link rel="stylesheet" href="../CSS/site.css"  />
+   
+  
+</head>
+<body>
+<header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-5 p-3">
+            <div class="container-fluid">
+                <a class="navbar-brand">Expense Tracker</a>
+              
+            </div>
+        </nav>
+
+    </header>
+
+<div id="result"></div>
+
+    <div class="container mt-4">
+        <div class="row">
+                <div class="col-md-6 bg-light pt-2">
+                    <h6 class="fw-bold">Total Expense Limit 
+                    <input type="number" id="totalexpenseimit" class="totalexpenselimit">
+                    <input type="submit" name="Set" value="Set" class="btn btn-secondary" id="set" >
+                </h6>
+                </div>
+                
+                <div class="col-md-6 bg-light pt-2" align="center">
+                    <h6 class="fw-bold">Total Expense Amount:
+                    <p id="totalexpenseamount"style=" color: #9F000F; "></p></h6>
+                </div>
+                
+            
+        </div>
+    </div>
+<div class="container mt-3">
+    <div class="row">
+    <div class="col-md-6">
+        <div class="widget p-3">
+
+          <form  method="post" name="categoryForm">
+             <span id="nameAlert" class="text-danger"></span>
+            <input type="text" id="cnInput" placeholder="Category Name" class="form-control input-sm mb-4 p-2" name="cName" required >
+           
+             <span id="limitAlert" class="text-danger"></span>
+            <input type="number" id="clInput" placeholder="Category Limit" class="form-control input-sm" name="cLimit" required >
+           
+
+            <div class="form-group mt-4 d-flex justify-content-center" >
+                <button id="btnAdd" class="btn btn-primary" onclick="return submitCategory()" >Add</button>
+            </div>
+            </form>    
+
+        </div>
+    </div>
+
+    <div class="col-md-6 widget p-3">
+        <form>
+               <span class="text-danger" id="enameAlert"></span>
+                <input type="text" placeholder="Expense Name" id="enInput" class="form-control input-sm mb-4 p-2" required />
+                
+            
+                <span class="text-danger" id="descAlert"></span>
+                <textarea type="text" placeholder="Expense Description" class="form-control mb-4" id="edescInput" required ></textarea>
+               
+            
+                <span class="text-danger" id="selectAlert"></span>
+                <select  class ="form-control mb-4" id="select" placeholder="Select" required>
+                </select>
+           
+                <span class="text-danger" id="amountAlert"></span>
+                <input class="form-control mb-4" type="number" id="amountInput" placeholder="Amount" required />
+                
+           
+            <div class="form-group d-flex justify-content-center" >
+                <button id="enAddButton" class="btn btn-primary" onclick="return submitExpense()">Add</button>
+            </div>
+            </form>
+    </div>
+</div>
+</div>
+
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-md-12 d-flex">
+                 
+            <div class="col-md-5 ">
+                    <h3>Categories</h3>
+                    <table class="table"  id = "myTable">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <a style="color:#000; text-decoration:none;">Category Name</a>
+                                </th>
+                                <th>    
+                                    <a style="color:#000; text-decoration:none;">Category Limit</a>
+                                </th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="categoryCon">
+                   
+                        </tbody>
+                    </table>
+                 </div>
+                 
+                 <div class="col-md-7">
+                    <h3>Expenses</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Expense Name
+                                </th>
+                                <th>
+                                    Expense Description
+                                </th>
+                                <th>
+                                    Category Name
+                                </th>
+                                <th>
+                                   Amount
+                                </th>
+                                <th>
+                                   Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="expenseCon">
+                        </tbody>
+                    </table>
+
+                    <button id="selectall" class="btn btn-primary" style="visibility: hidden;" onclick="return getAllExpenses()">Select All</button>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+        </div>
+    </div>
+</div>
+
+
+<footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - Expense Tracker 
+        </div>
+    </footer>
+<script type="text/javascript" src="../JS/script.js"></script>
+<script type="text/javascript" src="../JS/exscript.js"></script>
+
+</body>
+</html>
